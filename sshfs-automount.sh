@@ -34,7 +34,7 @@ function notify() {
  
 function sshfs_mount() {
     # Unmount local mountpoint first (this solves "endpoint not connected" error)
-    fusermount -uz $mountpoint
+    fusermount -uzq $mountpoint
     sshfs $user@$host:/ $mountpoint -o IdentityFile=$sshprivatekey -o idmap=user -p $port
     s=$?
 }
